@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acesso Exclusivo — Canvense Pro Company</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      padding: 32px 24px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    header img {
+      width: 160px;
+      max-width: 60vw;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 36px 24px 8px;
+      max-width: 480px;
+    }
+
+    .hero h1 {
+      font-size: 1.15rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+      color: #1a1a1a;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #666;
+      letter-spacing: 0.03em;
+      line-height: 1.7;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: #1a1a1a;
+      margin: 24px auto;
+    }
+
+    form {
+      width: 100%;
+      max-width: 420px;
+      padding: 0 24px 48px;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      background: transparent;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    input:focus {
+      border-bottom-color: #1a1a1a;
+    }
+
+    input.erro {
+      border-bottom-color: #c0392b;
+    }
+
+    .msg-erro {
+      font-size: 0.72rem;
+      color: #c0392b;
+      margin-top: 5px;
+      display: none;
+      letter-spacing: 0.03em;
+    }
+
+    .msg-erro.visivel {
+      display: block;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      margin-top: 32px;
+      padding: 16px;
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background: #333;
+    }
+
+    button[type="submit"]:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    /* Tela de sucesso */
+    #tela-sucesso {
+      display: none;
+      text-align: center;
+      padding: 60px 24px;
+      max-width: 420px;
+    }
+
+    #tela-sucesso .icone {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+    }
+
+    #tela-sucesso h2 {
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    #tela-sucesso p {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+
+    /* Tela de erro geral */
+    #msg-global {
+      display: none;
+      background: #fff3f3;
+      border: 1px solid #f5c6c6;
+      color: #c0392b;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      padding: 14px 16px;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    #msg-global.visivel {
+      display: block;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 24px;
+      font-size: 0.65rem;
+      color: #ccc;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="assets/logo-canvense.png" alt="Canvense Pro Company" />
+  </header>
+
+  <!-- Formulário -->
+  <div id="tela-form">
+    <div class="hero">
+      <h1>Técnicas exclusivas para usar na<br>Touca Crystal By Anderson Salgado</h1>
+      <p>Preencha seus dados abaixo para ativar<br>o seu acesso gratuito aos conteúdos exclusivos.</p>
+    </div>
+    <div class="divider"></div>
+
+    <form id="form-cadastro" novalidate>
+
+      <div class="field">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" />
+        <span class="msg-erro" id="erro-nome">Por favor, informe seu nome completo.</span>
+      </div>
+
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" />
+        <span class="msg-erro" id="erro-email">Informe um e-mail válido.</span>
+      </div>
+
+      <div class="field">
+        <label for="telefone">WhatsApp</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel" maxlength="15" />
+        <span class="msg-erro" id="erro-telefone">Informe um número de WhatsApp válido.</span>
+      </div>
+
+      <div class="field">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" />
+        <span class="msg-erro" id="erro-cpf">Informe um CPF válido.</span>
+      </div>
+
+      <div class="field">
+        <label for="pedido">Número do Pedido (Nuvemshop)</label>
+        <input type="text" id="pedido" name="pedido" placeholder="Ex: 1234" inputmode="numeric" />
+        <span class="msg-erro" id="erro-pedido">Informe o número do pedido.</span>
+      </div>
+
+      <div id="msg-global"></div>
+
+      <button type="submit" id="btn-enviar">Ativar Meu Acesso</button>
+
+    </form>
+  </div>
+
+  <!-- Tela de sucesso -->
+  <div id="tela-sucesso">
+    <div class="icone">✦</div>
+    <h2>Acesso Ativado</h2>
+    <p>
+      Seu cadastro foi realizado com sucesso.<br><br>
+      Em instantes você receberá um e-mail com<br>
+      os dados de acesso ao seu conteúdo exclusivo.<br><br>
+      <strong>Verifique também sua caixa de spam.</strong>
+    </p>
+  </div>
+
+  <footer>© Canvense Pro Company — Todos os direitos reservados</footer>
+
+  <script>
+    // ── Máscaras ──────────────────────────────────────────────
+
+    document.getElementById('telefone').addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length > 10) {
+        v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      } else if (v.length > 6) {
+        v = v.replace(/^(\d{2})(\d{4})(\d*)$/, '($1) $2-$3');
+      } else if (v.length > 2) {
+        v = v.replace(/^(\d{2})(\d*)$/, '($1) $2');
+      }
+      this.value = v;
+    });
+
+    document.getElementById('cpf').addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '').slice(0, 11);
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      this.value = v;
+    });
+
+    // ── Validação de CPF ──────────────────────────────────────
+
+    function validarCPF(cpf) {
+      cpf = cpf.replace(/\D/g, '');
+      if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+      let soma = 0;
+      for (let i = 0; i < 9; i++) soma += parseInt(cpf[i]) * (10 - i);
+      let r = (soma * 10) % 11;
+      if (r === 10 || r === 11) r = 0;
+      if (r !== parseInt(cpf[9])) return false;
+      soma = 0;
+      for (let i = 0; i < 10; i++) soma += parseInt(cpf[i]) * (11 - i);
+      r = (soma * 10) % 11;
+      if (r === 10 || r === 11) r = 0;
+      return r === parseInt(cpf[10]);
+    }
+
+    function validarEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function validarTelefone(tel) {
+      return tel.replace(/\D/g, '').length >= 10;
+    }
+
+    // ── Mostrar / esconder erros ──────────────────────────────
+
+    function mostrarErro(id, mostrar) {
+      const campo = document.getElementById(id.replace('erro-', ''));
+      const msg = document.getElementById(id);
+      if (mostrar) {
+        campo.classList.add('erro');
+        msg.classList.add('visivel');
+      } else {
+        campo.classList.remove('erro');
+        msg.classList.remove('visivel');
+      }
+      return mostrar;
+    }
+
+    // ── Submit ────────────────────────────────────────────────
+
+    document.getElementById('form-cadastro').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const cpf = document.getElementById('cpf').value.trim();
+      const pedido = document.getElementById('pedido').value.trim();
+
+      let temErro = false;
+
+      temErro = mostrarErro('erro-nome', nome.length < 3) || temErro;
+      temErro = mostrarErro('erro-email', !validarEmail(email)) || temErro;
+      temErro = mostrarErro('erro-telefone', !validarTelefone(telefone)) || temErro;
+      temErro = mostrarErro('erro-cpf', !validarCPF(cpf)) || temErro;
+      temErro = mostrarErro('erro-pedido', pedido.length < 1) || temErro;
+
+      if (temErro) return;
+
+      const btn = document.getElementById('btn-enviar');
+      const msgGlobal = document.getElementById('msg-global');
+
+      btn.disabled = true;
+      btn.textContent = 'Aguarde...';
+      msgGlobal.classList.remove('visivel');
+
+      try {
+        const resposta = await fetch('/.netlify/functions/cadastro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, email, telefone, cpf, pedido })
+        });
+
+        const dados = await resposta.json();
+
+        if (resposta.ok) {
+          document.getElementById('tela-form').style.display = 'none';
+          document.getElementById('tela-sucesso').style.display = 'block';
+        } else {
+          msgGlobal.textContent = dados.mensagem || 'Erro ao processar seu cadastro. Tente novamente.';
+          msgGlobal.classList.add('visivel');
+          btn.disabled = false;
+          btn.textContent = 'Ativar Meu Acesso';
+        }
+      } catch (err) {
+        msgGlobal.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
+        msgGlobal.classList.add('visivel');
+        btn.disabled = false;
+        btn.textContent = 'Ativar Meu Acesso';
+      }
+    });
+  </script>
+
+</body>
+</html>
